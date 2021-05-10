@@ -1,9 +1,11 @@
-function fibonaci(n, accu = 0) {
-    if (n === 0) return accu;
-    return fibonaci( n - 1, accu += n);
+function fibonaci(n, numbers = []) {
+   if (n === 0) return [0];
+   if (n === 1) return [0,1];
+   if (n === numbers.length - 1) return numbers;
+   if (numbers.length === 0) numbers = [0,1];
+   const newValue = numbers[numbers.length-1] + numbers[numbers.length-2];
+   numbers.push(newValue);
+   return fibonaci (n, numbers);
 }
 
-console.log(fibonaci(1));
-console.log(fibonaci(2));
-console.log(fibonaci(3));
-console.log(fibonaci(4));
+console.log(fibonaci(8));
